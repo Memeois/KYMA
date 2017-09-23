@@ -18,6 +18,7 @@ class kymSearch:
 		self.page2=requests.get(self.url2,headers=self.headers)
 		self.soup2=BeautifulSoup(self.page2.content, 'html.parser')
 		self.about = self.soup2.find('meta', attrs={"name":"description"})
+		self.imageurl = self.soup2.find('meta', attrs={"property":"og:image"})['content']
 		self.t2=datetime.now().second
 		self.time=self.t2-self.t1
 	def __repr__(self):
